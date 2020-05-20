@@ -1,0 +1,174 @@
+Below notes are from Python lectures from: https://www.youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3
+
+1. Arithmetic operations:
+    Addition
+        >>> 2+4
+        6
+    Subtraction
+        >>> 9-8
+        1
+    Multiplication
+        >>> 4 * 6
+        24
+    Division (returns float)
+        >>> 8 / 4
+        2.0
+    Integer division / Floor division
+        >>> 6 // 3
+        2
+        >>> 5 // 2
+        2
+    Combination of arithmetic operations
+        >>> 8 + 9 - 10
+        7
+    BODMAS
+        >>> 8 + 2 * 3
+        14
+    Brackets
+        >>> (8 + 2) * 3
+        30
+    Power of:
+        >>> 2 * 2 * 2
+        8
+        >>> 2 ** 3
+        8
+    Modulus operator (gives remainder)
+        >>> 12 % 5
+        2
+        >>> 10 // 3
+        3
+        >>> 10 % 3
+        1
+        >>>
+
+2. Strings [IMMUTABLE DATA STRUCTURE]
+    - Strings are mutable data structures that cannot be changed.
+    - They can hold any type of words eg. numeric, character, special characters etc.
+    - Slicing, iterating etc are common operations
+
+        printing both single & double quotes
+            >>> print('''Akshay's "new" laptop''')
+            Akshay's "new" laptop
+            >>> print('Akshay\'s "new" laptop')
+            Akshay's "new" laptop
+            >>>
+        String concatenation:
+            >>> 'Akshay' + ' ' + 'Jagtap'
+            'Akshay Jagtap'
+        String multiplication
+            >>> 'Akshay ' * 3
+            'Akshay Akshay Akshay '
+            >>>
+        Problems with having \ in string:
+        >>> print('c:\docs\ajagtap\')
+            File "<stdin>", line 1
+            print('c:\docs\ajagtap\')
+                                  ^
+            SyntaxError: EOL while scanning string literal
+             - Here the \ was considered as escape character
+         >>> print('c:\docs\new')
+            c:\docs
+            ew
+             - Here \n is considered as a new line
+            Solution is to use it as raw string by typing r before string:
+            >>> print(r'c:\docs\new')
+                c:\docs\new
+            >>>
+
+    2.1. Variables & string
+        Variables are mutable objects that holds a value that can be changes during the operations of a program.
+            Slicing a string variable
+                >>> var = "youtube"
+                >>> var[4]
+                'u'
+                >>> var[-3]
+                'u'
+                >>> var[0:3]
+                'you'
+                >>> var[:3]
+                'you'
+                >>> var[4:-1]
+                'ub'
+                >>> var[4:]
+                'ube'
+                >>> var[3:]
+                'tube'
+                >>>
+                >>> var[3:10000]
+                'tube'
+            Trying to change:
+                >>> var[2:4] = "xx"
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                TypeError: 'str' object does not support item assignment
+                >>>
+            This is because string while iterating becomes immutable. Strings in general are immutable type.
+            Some build in methods can change strings but never in place. For example you can do:
+                var = "akshay"
+                var.upper()
+                print(var)
+            This will print "akshay". That is because string is immutable. So you have to either assign it to a new variable or to itself. Eg:
+                var = var.upper()
+                print var
+            This will print "AKSHAY"
+
+    2.2. Strings build in methods
+        st.upper()
+        st.lower()
+        st.isupper()
+        st.islower()
+        st.capitalize()
+        st.count(st2, beg, end)
+                "Hello World".count("l") -> 3
+        st.find(str, beg, end)
+                "Hello World".find("l") -> 2 (case sensitive and returns -1 on not finding)
+        st.rfind()
+        st.lstrip() # Removes left side white space
+        st.rstrip()
+        st.strip() # both sides
+        st.replace()
+        st.title()  # makes every character of each word uppercase
+        is.istitle()
+        st.split()  # returns a list of character strings separated by space or if something is passed
+        st.isalpha() # returns True only if all characters are alphabet
+        st.isalnum() # True if string is only alphabet, only number or combination, used to check special characters
+        st.isdigit() # True if all numerical string
+        st.startswith(st2, beg, end)
+        st.endswith(st2, beg, end)
+        st.center()
+                >>> "hello".center(20)
+                '       hello        '
+                >>> "hello".center(20, "#")
+                '#######hello########'
+        st.index(st2, beg, end)
+        st.rindex(st2, beg, end)
+        st.swapcase() # lower <--> upper
+
+        len(st)
+        max(st)                 # maximum ascii value character
+        min(st)
+        input_string = input()  # Take input from user. Will always read it as a string.
+
+
+3. Lists [MUTABLE DATA STRUCTURE]
+    - Arrays that are indexed. Can perform operations like insertion, deletion, slicing, indexing, iteration etc.
+    - Lists can hold any data structures in combination.
+    - All operations are in-place meaning you don't need to reassign.
+
+    3.1. Common List methods
+        l.append()                  # adds element at -1 index
+        l.clear()                   # deletes all elements
+        l.copy()                    # l2 = l1.copy() this will remove l2's reference to l1 address location like deep copy
+        l.extend(iterable_object)   # iterates over given object and appends to list one by one
+        l.index(element)
+        l.insert(index, value)      # inserts value at given index
+        l.pop(index)                # removes last element or given index
+        l.remove()                  # removes given value (first occurrence)
+        l.reverse()                 # reverses string
+        l.sort()                    # sorts based on ascii value of start char of string elements. Cannot use on lists with strings and int.
+
+        len(l)
+        del l[2:21]
+        min(l)
+        max(l)
+        sum(l)

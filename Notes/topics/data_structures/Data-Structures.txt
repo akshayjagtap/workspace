@@ -1,0 +1,64 @@
+ADT (Abstract Data Type)
+-------------------------
+    ADT is an abstraction of a data structure which provides only the interface to which a data structure must adhere to.
+    It does not give specific details on how it should be implemented and in which language.
+    ADT only defines HOW a data structure must behave and what methods it should have but not the details surrounding
+    how those methods can be implemented.
+
+    Example: We want to get from one place to another with some mode of transportation is an ADT. How we actually do that
+    i.e. ride a bike, take a flight or walk is up to us and is the actual data structure.
+
+    Chart of ADT and their DS:
+    ADT             |                          DS
+    ----------------|-------------------------------------------
+    Lists           |            Dynamic Array, Linked lists
+                    |            (both provide adding, removing and indexing elements in list)
+                    |
+    Queue           |            Linked list based queue
+                    |            Array based queue
+                    |            Stack based queue
+                    |
+    Map             |            Tree map, hash map/ hash table
+
+
+
+
+
+Complexity Analysis
+-------------------
+    It is method to see how our data structures are performing.
+    Two main questions for every code we write:
+        1. How much time does the algorithm takes to finish?
+        2. How much space does this algorithm need for computation?
+    To quantify the answer to the above two questions, we have the Big-O notation
+
+Big-O Notation:
+    -Big-O notation gives the upper bound of the complexity for an algorithm in the "worst case".
+    -For example: say we have a list of unique numbers and we want to find the index of the number 7. Big-O assumes the
+    worst case i.e. the number is last in the list. So to get to that number we need to traverse the entire list making
+    the complexity increase linearly with respect to the size of the list.
+    -Big-O notation only assumes input size becoming arbitrarily large.
+    -We ignore things like constants and multiple different factors.
+
+    n: The size of the input, complexities ordered in from smallest to largest
+            constant-time : O(1)
+        logarithmic-time : O(log(n))
+              linear-time : O(n)
+        linearithmic-time : O(nlog(n))
+           quadratic-time : O(n^2)
+               cubic-time : O(n^3)
+         exponential-time : O(b^n), b > 1
+           factorial-time : O(n!)
+
+Big-O Properties:
+    -Big-O only cares about when 'n' goes really big close to infinity.
+    -Properties:
+        O(n+c) = O(n)     i.e. we can remove a constant. Adding constant to infinity=infinity.
+        O(nc) = O(n), c>0 i.e. even multiplication to infinity is infinity
+
+    Example:
+        Consider the function:
+        f(n) = 7log(n^3) + 15n^2 + 2n^3 + 9000
+        Here the complexity of this whole equation is O(n^3) as n^3 is the biggest, most dominant term in that function.
+
+    O(1) examples:
